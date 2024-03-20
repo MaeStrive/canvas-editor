@@ -268,7 +268,7 @@ export default class Editor {
 }
 
 // 对外方法
-export { splitText }
+export { splitText,deepClone }
 
 // 对外常量
 export { EDITOR_COMPONENT, LETTER_CLASS, INTERNAL_CONTEXT_MENU_KEY }

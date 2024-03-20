@@ -2,31 +2,32 @@ import { EDITOR_PREFIX } from '../../dataset/constant/Editor'
 import { EditorZone } from '../../dataset/enum/Editor'
 import { throttle } from '../../utils'
 import { Draw } from '../draw/Draw'
-import { I18n } from '../i18n/I18n'
+// import { I18n } from '../i18n/I18n'
 import { Zone } from './Zone'
 
 export class ZoneTip {
   private zone: Zone
-  private i18n: I18n
+  // private i18n: I18n
   private container: HTMLDivElement
   private pageContainer: HTMLDivElement
 
   private isDisableMouseMove: boolean
   private tipContainer: HTMLDivElement
-  private tipContent: HTMLSpanElement
-  private currentMoveZone: EditorZone | undefined
+  // private tipContent: HTMLSpanElement
+  // private currentMoveZone: EditorZone | undefined
 
   constructor(draw: Draw, zone: Zone) {
     this.zone = zone
-    this.i18n = draw.getI18n()
+    // this.i18n = draw.getI18n()
     this.container = draw.getContainer()
     this.pageContainer = draw.getPageContainer()
 
-    const { tipContainer, tipContent } = this._drawZoneTip()
+    // const { tipContainer, tipContent } = this._drawZoneTip()
+    const { tipContainer } = this._drawZoneTip()
     this.tipContainer = tipContainer
-    this.tipContent = tipContent
+    // this.tipContent = tipContent
     this.isDisableMouseMove = true
-    this.currentMoveZone = EditorZone.MAIN
+    // this.currentMoveZone = EditorZone.MAIN
     // 监听区域
     const watchZones: EditorZone[] = []
     const { header, footer } = draw.getOptions()
@@ -53,12 +54,12 @@ export class ZoneTip {
             this._updateZoneTip(false)
             return
           }
-          this.currentMoveZone = mousemoveZone
+          // this.currentMoveZone = mousemoveZone
           // 激活区域是正文，移动区域是页眉、页脚时绘制
           this._updateZoneTip(
             this.zone.getZone() === EditorZone.MAIN &&
-              (mousemoveZone === EditorZone.HEADER ||
-                mousemoveZone === EditorZone.FOOTER),
+            (mousemoveZone === EditorZone.HEADER ||
+              mousemoveZone === EditorZone.FOOTER),
             evt.x,
             evt.y
           )
@@ -91,14 +92,16 @@ export class ZoneTip {
 
   private _updateZoneTip(visible: boolean, left?: number, top?: number) {
     if (visible) {
-      this.tipContainer.classList.add('show')
-      this.tipContainer.style.left = `${left}px`
-      this.tipContainer.style.top = `${top}px`
-      this.tipContent.innerText = this.i18n.t(
-        `zone.${
-          this.currentMoveZone === EditorZone.HEADER ? 'headerTip' : 'footerTip'
-        }`
-      )
+      console.log(left)
+      console.log(top)
+      // this.tipContainer.classList.add('show')
+      // this.tipContainer.style.left = `${left}px`
+      // this.tipContainer.style.top = `${top}px`
+      // this.tipContent.innerText = this.i18n.t(
+      //   `zone.${
+      //     this.currentMoveZone === EditorZone.HEADER ? 'headerTip' : 'footerTip'
+      //   }`
+      // )
     } else {
       this.tipContainer.classList.remove('show')
     }

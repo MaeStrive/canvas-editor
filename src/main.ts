@@ -39,12 +39,12 @@ window.onload = function () {
         {
           value: '第一人民医院',
           size: 32,
-          rowFlex: RowFlex.CENTER
+          rowFlex: RowFlex.CENTER,
         },
         {
           value: '\n门诊病历',
           size: 18,
-          rowFlex: RowFlex.CENTER
+          rowFlex: RowFlex.CENTER,
         },
         {
           value: '\n',
@@ -664,6 +664,7 @@ window.onload = function () {
               {
                 type: ElementType.CONTROL,
                 value: '',
+
                 control: {
                   type,
                   value: value

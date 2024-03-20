@@ -1,7 +1,7 @@
 import { EDITOR_PREFIX } from '../../dataset/constant/Editor'
 import { EditorZone } from '../../dataset/enum/Editor'
 import { IEditorOption } from '../../interface/Editor'
-import { nextTick } from '../../utils'
+// import { nextTick } from '../../utils'
 import { Draw } from '../draw/Draw'
 import { I18n } from '../i18n/I18n'
 import { ZoneTip } from './ZoneTip'
@@ -48,27 +48,30 @@ export class Zone {
   }
 
   public setZone(payload: EditorZone) {
-    if (this.currentZone === payload) return
-    this.currentZone = payload
-    this.draw.getRange().clearRange()
-    this.draw.render({
-      isSubmitHistory: false,
-      isSetCursor: false,
-      isCompute: false
-    })
-    // 指示器
-    this.drawZoneIndicator()
-    // 回调
-    nextTick(() => {
-      const listener = this.draw.getListener()
-      if (listener.zoneChange) {
-        listener.zoneChange(payload)
-      }
-      const eventBus = this.draw.getEventBus()
-      if (eventBus.isSubscribe('zoneChange')) {
-        eventBus.emit('zoneChange', payload)
-      }
-    })
+    // console.log("不让你改头! -wh")
+    console.log(payload)
+    return
+    // if (this.currentZone === payload) return
+    // this.currentZone = payload
+    // this.draw.getRange().clearRange()
+    // this.draw.render({
+    //   isSubmitHistory: false,
+    //   isSetCursor: false,
+    //   isCompute: false
+    // })
+    // // 指示器
+    // this.drawZoneIndicator()
+    // // 回调
+    // nextTick(() => {
+    //   const listener = this.draw.getListener()
+    //   if (listener.zoneChange) {
+    //     listener.zoneChange(payload)
+    //   }
+    //   const eventBus = this.draw.getEventBus()
+    //   if (eventBus.isSubscribe('zoneChange')) {
+    //     eventBus.emit('zoneChange', payload)
+    //   }
+    // })
   }
 
   public getZoneByY(y: number): EditorZone {

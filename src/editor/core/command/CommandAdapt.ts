@@ -2195,6 +2195,7 @@ export class CommandAdapt {
 
   public insertElementList(payload: IElement[]) {
     if (!payload.length) return
+    // console.log(payload)
     const isReadonly = this.draw.isReadonly()
     if (isReadonly) return
     const cloneElementList = deepClone(payload)

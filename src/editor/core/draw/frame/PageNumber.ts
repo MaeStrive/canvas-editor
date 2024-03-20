@@ -74,6 +74,12 @@ export class PageNumber {
     } else {
       x = margins[3]
     }
+    ctx.strokeStyle ='#000000' // 线条颜色
+    ctx.lineWidth = 0.5 // 线条宽度
+    ctx.beginPath()
+    ctx.moveTo(margins[3], y-20) // 移动到起点
+    ctx.lineTo(width-margins[1], y-20) // 从起点画一条直线到终点
+    ctx.stroke() // 绘制线条
     ctx.fillText(text, x, y)
     ctx.restore()
   }

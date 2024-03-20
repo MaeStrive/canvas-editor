@@ -254,7 +254,9 @@ export class Draw {
   }
 
   public setMode(payload: EditorMode) {
-    if (this.mode === payload) return
+    if (this.mode === payload)
+      return
+
     // 设置打印模式
     if (payload === EditorMode.PRINT) {
       this.printModeData = {
@@ -272,6 +274,7 @@ export class Draw {
       })
       this.setEditorData(clonePrintModeData)
     }
+
     // 取消打印模式
     if (this.mode === EditorMode.PRINT && this.printModeData) {
       this.setEditorData(this.printModeData)
@@ -1058,8 +1061,8 @@ export class Draw {
     const font = el.font || defaultFont
     const size = el.actualSize || el.size || defaultSize
     return `${el.italic ? 'italic ' : ''}${el.bold ? 'bold ' : ''}${
-      size * scale
-    }px ${font}`
+    size * scale
+      }px ${font}`
   }
 
   public computeRowList(innerWidth: number, elementList: IElement[]) {

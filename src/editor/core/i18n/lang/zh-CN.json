@@ -83,7 +83,7 @@
     "displayName": "分页符"
   },
   "zone": {
-    "headerTip": "双击编辑页眉",
-    "footerTip": "双击编辑页脚"
+    "headerTip": "",
+    "footerTip": ""
   }
 }
